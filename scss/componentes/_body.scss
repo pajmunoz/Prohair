@@ -1,0 +1,1508 @@
+@font-face {
+    font-family: helvThin;
+    src: url(HelveticaNeueLTStd-LtCn.woff);
+}
+@font-face {
+    font-family: century;
+    src: url(century.woff);
+}
+@font-face {
+    font-family: helve;
+    src: url(helve.woff);
+}
+@font-face {
+    font-family: helveC;
+    src: url(Helvetica-Compressed.woff);
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+*{
+    font-family: helvThin;
+}
+
+@keyframes flotar {
+    0% {
+        margin-top: -.6em;
+    }
+    50% {
+        margin-top: .0em;
+    }
+    100% {
+        margin-top: -.6em;
+    }
+}
+.span1 {
+    transform: rotate(45deg) translate(2px, 6px);
+}
+.span2 {
+    opacity: 0;
+}
+.span3 {
+    transform: rotate(-45deg) translate(5px, -10px);
+}
+
+.menu-ico-resp {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-top: .5em;
+    position: fixed;
+    z-index: 99;
+    right: .2em;
+    top: .3em;
+    span {
+        transition: all .2s;
+        width: 35px;
+        height: 1px;
+        margin: 3px;
+        border: 1px solid #00B8D4;
+    }
+    span:nth-child(1) {}
+    span:nth-child(2) {}
+    span:nth-child(3) {}
+}
+.menuShow {
+    width: 100% !important;
+    height: 100vh;
+    right: 0% !important;
+    top: 24px;
+    @include desde(web) {
+        height: auto;
+        top: 0;
+    }
+}
+body{
+    overflow-x: hidden;
+}
+.blur{
+    filter: blur(5px);
+}
+.cont-blur{
+    transition: .5s all;
+    @include desde(web){
+        filter: blur(0px)!important;
+    }
+}
+#menu {
+    position: fixed;
+    background-color: rgba(#333333,.1);
+    z-index: 90;
+    width: 100%;
+    transition: .2s all;
+    top: 0;
+    height: 50px;
+    @include desde(web){
+        height: 115px;
+        background-color: #fff!important;
+    }
+    @include hasta(web){
+        top:0 !important;
+    }
+    .menu {
+        margin: 0em;
+        position: relative;
+        @include desde(web){ 
+            top: 4vh;
+        }
+        .menu-resp {
+            justify-content: space-between;
+            .icon-menu {
+                /*font-size: 1.5em;
+                text-align: right;
+                cursor: pointer;
+                vertical-align: middle;
+                color: #29A9E0;
+                font-weight: lighter;*/
+                //position: absolute;
+                // right: 15%;
+                //  top: 11%;
+            }
+            /* .icon-menu:before {
+                color: #29A9E0;
+                }*/
+            }
+            .logo{
+                position: relative;
+                figure{
+                    margin: .6em auto;
+                    width: 150px;
+                    @include desde(web){
+                        margin: 0;
+                        width: 100%;
+                    }
+                    
+                    // background: url(../img/logo.png);
+                    // background-repeat: no-repeat !important;
+                    // background-position: center !important;
+                    // background-size: cover !important;
+                    // position: relative;
+                    // transition: .5s all;
+                    // top: -15px;
+                    img{
+                    }
+                }
+            }
+            .menuShow {
+                width: 100% !important;
+                height: 100vh;
+                right: 0% !important;
+                top: 24px;
+            }
+            .menu-top {
+                list-style: none;
+                flex-flow: column;
+                width: 0%;
+                position: absolute;
+                right: -10%;
+                z-index: 99;
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 0;
+                transition: .3s all;
+                top: 0;
+                margin: 0;
+                height: 100vh;
+                @include desde(web) {
+                    position: relative;
+                    width: 100%;
+                    flex-flow: row;
+                    top: 20px;
+                    right: 0%;
+                    height: auto;
+                    background-color: transparent;
+                }
+                li {
+                    text-align: center;
+                    padding: .5em;
+                    font-size: 1.2em;
+                    background: rgba(white,0.5);
+                    border-bottom: 10px solid rgba( #54BEC8,.3);
+                    @include desde(web) {
+                        text-align: right;
+                        padding: 0em;
+                        font-size: 1em;
+                        border-bottom: 1px solid transparent;
+                        background: transparent;
+                    }
+                    a {
+                        color: #65CBC9;
+                        font-weight: 300;
+                        transition: .1s all;
+                        border-bottom: 0!important;
+                        @include hasta(web){
+                            color: #54BEC8 !important;
+                        }
+                        @include desde(web) {
+
+                            font-weight: lighter;
+                            font-weight: 800;
+                            &:hover{
+                                color:#FD5373;
+                            }
+                        }
+                    }
+                    &:last-child{
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+    #primera{
+        height: 200px;
+        background: url(../img/top.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position:center;
+        @include desde(web){
+            height: 550px;
+            margin-top: 115px;
+            background: url(../img/top2.png) #E6E6E6;
+            background-repeat: no-repeat;
+        }
+        .cont1{
+            position: relative;
+            height: 100%;
+            .txt{
+                position: absolute;
+                bottom:0;
+                right: 0;
+                p{
+                    color: white;
+                    text-align: right;
+                    margin: 0;
+                    font-family: helve;
+                    font-weight: 600;
+                    font-size: 1.2em;
+                }
+            }
+            .txt1{
+                position: relative;
+                p{
+                    position: absolute;
+                    right: 15%;
+                    top: 0;
+                    color: #FD5373;
+                    font-size: 2.5em;
+                    text-align: right;
+                    &:last-child{
+                        position: absolute;
+                        bottom:0;
+                        right: -15%;
+                        top: auto;
+                        font-size: 1em;
+                        text-align: center;
+                        color: #000;
+                    }
+                }
+                figure{
+                    position: absolute;
+                    bottom:0;
+                    width: 300px;
+                    img{
+
+                    }
+                }
+            }   
+        }  
+    }
+    #separador0{
+        p{
+            background: #E6E6E6;
+            color:#0096A9;
+            text-align: center;
+            font-weight: 600;
+            margin:0;
+            padding:.5em;
+        }
+    }
+    #segunda{
+        z-index: 2;
+        @include hasta(web){
+            filter: blur(0)!important;
+        }
+        .cont-2{
+            position: relative;
+            .txt{
+                position: relative;
+                p{
+                    position: absolute;
+                    color: #0095DA;
+                    font-weight: 800;
+                    line-height: 1em;
+                    font-size: 2.5em;
+                    top: -450px;
+                    right: 5%;
+                    l{
+                        color: black;
+                        font-size: .4em;
+                        line-height: 0px;
+                        font-weight:100;
+                    }
+                }
+            }
+            .form-top{
+                @include desde(web){
+                    position: absolute;
+                    top:-520px;
+                    z-index: 3;
+                    right: 0;
+                }
+                .llama-bot {
+                    background-color: transparent;
+                    position: relative;
+                    margin-top: 2em;
+                    p {
+                        text-align: center;
+                        font-family: century;
+                        font-size: 1.5em;
+                        margin: 0;
+                        font-weight: 600;
+                        @include desde(web) {
+                            font-weight: 100;
+                            font-size: 1.5em;
+                            margin: 0;
+                            line-height: 1em;
+                            font-family: century;
+                            color: #FD5373;
+                        }
+                        img{
+                            position: relative;
+                            left: -10px;
+                            top: 50px;
+                            width: 30px;
+                        }
+                        span:first-of-type {
+                            font-size: .6em;
+                            font-weight: 100;
+                            position: relative;
+                            bottom: 20px;
+                            left: -5px;
+                            @include desde(web){
+                                bottom:25px;
+                            }
+                        }
+                        span {
+                            font-size: .8em;
+                            font-weight: 100;
+                        }
+                        strong {
+                            font-size: 1.8em;
+                            font-family: helveC;
+                            line-height: 1;
+                            font-weight: 100;
+                            @include desde(web) {
+                                font-size: 2em;
+                            }
+                        }
+                    }
+                }
+                .consulta{
+                    margin: 0 auto;
+                    p{
+                        font-family: century;
+                        text-align: center;
+                        color: #000;
+                    }
+                }
+                .form-segunda{
+                    background: #D3D1D1;
+                    @include desde(web){ 
+                        border-radius:1em;
+                        background: #CCCCCC;
+                    }
+                    .form-1{
+                        // .llama-bot {
+                        //     p {
+                        //         padding-top:1em;
+                        //         margin: 0;
+                        //         font-weight: 500;
+                        //         font-size: 1.4em;
+                        //         line-height: 1.5em;
+                        //         font-family: century;
+                        //         span:first-of-type {
+                        //             font-size: .5em;
+                        //             font-weight: 100;
+                        //             position: relative;
+                        //             bottom: 10px;
+                        //         }
+                        //         span {
+                        //             font-size: .8em;
+                        //             font-weight: 100;
+                        //         }
+                        //         strong {
+                        //             font-size: 1.5em;
+                        //         }
+                        //     }
+                        // }
+                        .consulta{
+                            margin: 0 auto;
+                            p{
+                                font-family: century;
+                                text-align: center;
+                                color: #A70064;
+                                font-weight: 800;
+                                @include desde(web){
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        input {
+                            width: 100%;
+                            padding: .5em;
+                            border: 1px solid transparent;
+                            border-radius: .8em;
+                            font-size: 1em;
+                            margin-bottom: .5em;
+                            font-weight: 800;
+                            //background: black;
+                            @include desde(web){ 
+                                width:100%;
+                            }
+                        }
+                        input[type="submit"] {
+                            font-family: helveC;
+                            background: #FD5373;
+                            color: white;
+                            font-size: 2em;
+                            padding: 0em;
+                            border-radius: .5em;
+                            border: 1px solid transparent;
+                            cursor: pointer;
+                            font-weight: 100;
+                            transition: .5s all;
+                            @include desde(web){
+                                font-size: 2em;
+                                background: #0096A9;
+                                margin-top: .5em;
+                                margin-bottom: 1em;
+                            }
+                        }
+                        input[type="radio"] {
+                            background-image: none !important;
+                            background-color: #fff;
+                            width: 1em;
+                            padding: 1em;
+                        }
+                        input[type=radio]:checked {
+                            background-image: none !important;
+                            background-color: #808285;
+                        }
+                        input[type="submit"]:disabled {
+                            background: #9C1C38;
+                            border: 1px solid transparent;
+                            position: relative;
+                            cursor: not-allowed;
+                            -webkit-appearance: none;
+                            opacity: 1;
+                            @include desde(web){
+                                background: rgba(#0096A9,.8);
+                            }
+                        }
+                        input[type="number"] {
+                            -moz-appearance: textfield;
+                        }
+                        [name="code"] {
+                            @include desde(web) {
+                                padding-right: 15px;
+                                padding-left: 30px;
+                            }
+                        }
+                        [name="numero"] {
+                            @include desde(web) {
+                                padding-left: 15px;
+                                padding-right: 30px;
+                            }
+                        }
+                        [name="cod1"],
+                        [name="num"] {
+                            @include desde(web) {
+                                top: -35px;
+                                font-size: .9em;
+                                left: 15px;
+                                width: 190px;
+                                padding: 0;
+                            }
+                        }
+                        // [name="cod"],
+                        [name="telefono"]{
+                            @include desde(web){
+                                margin-left:15px;
+                            }
+                        }
+                    }
+                }
+            }
+            .jamas {
+                margin-top: 0em;
+                @include desde(web){
+                    margin-bottom: 2em;
+                }
+                .ico-candado {
+                    margin:10px 10px 10px 10px;
+                    @include desde(web){
+                        margin:20px 10px 10px 10px;
+                    }
+                }
+                p {
+                    font-family: century;
+                    text-align: left;
+                    font-size: .6em;
+                    color: black;
+                    @include desde(web){
+                        font-size: .8em;
+                        color: #666766;
+                    }
+                }
+            } 
+        }
+    }
+
+    #tercera{
+        @include desde(web){
+            padding-top: 67px;
+        }
+        .cont3{
+            //height: 100%;
+            .txt{
+                p{
+                    @include desde(web){
+                        font-size: 1.7em;
+                    }
+                    span{
+                        color:#54BEC8;
+                        font-weight: 800;
+                    }   
+                    strong{
+
+                        color: #FD5373;
+                    }
+                }
+            }
+            .txt1{
+                p{
+                    text-align: center;
+                    color: #A70064;
+                }
+            }
+            .txt2{
+                p{
+                    @include desde(web){
+                        font-size: 1.7em;
+                    }
+                    span{
+                        color:#54BEC8;
+                        font-weight: 800;
+                    }
+                }
+            }
+            .img{
+                figure{
+                    img{
+
+                    }
+                }
+            }
+            .txt3{
+                p{
+                    font-size: .8em;
+                    text-align: center;
+                    font-weight: 800;
+                }
+            }
+            .box{
+                background: #F0F0F0;
+                @include desde(web){
+                    background: transparent;
+                }
+                p{                   
+                    color: #808080;
+                    font-size:1.5em; 
+                    span{
+                        color:#0096A9;
+                        font-weight: 800;
+                    }
+                    &:nth-child(4){
+                        color:#0096A9;
+                        text-align: center;
+                        font-weight: 800;
+                        font-size:1.6em;
+                        margin-top:2em; 
+                        margin-bottom:2em;
+                    }
+                    &:nth-child(5){
+                        background: #F2F2F2;
+                        color:#4D4D4E;
+                        text-align: center;
+                        font-size:1.3em;
+                        font-weight: 800;
+                        padding:.5em;
+                        margin-top:2em; 
+                        margin-bottom:2em;
+                        i{
+                            color: #FD5373;
+                        }
+                    }
+                }
+                ul{ list-style-image: url(visto.png);
+                    list-style-position: inside;
+                    @include desde(web){
+                        list-style:none;
+                        flex-direction: row;
+                        display: flex;
+                        justify-content: space-between;
+                        text-align: center;
+                        padding:0;
+                    }
+
+                    li{
+                        font-size:1.5em;
+                        font-weight: 500;
+                        color: #808080;
+                        padding:.3em;
+                        @include desde(web){
+                            width: 25%;
+                            padding:.5em;
+                            background: #F2F2F2;
+                            border-radius:.5em;
+                            text-transform: uppercase;
+                            text-align: center;
+                        }
+
+                    }
+                }
+            }
+        } 
+    }
+    #cuarta{
+        height: 600px;
+        background: url(../img/mid.png);
+        background-position:center 1px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include desde(web){
+            padding-top: 67px;
+            background: none;
+            height: auto;
+        }
+        .cont4{
+            @include desde(web){
+                background: url(../img/mid.png);
+                background-position:center 1px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed; 
+            }
+            .cont4-1{
+                justify-content: space-around;
+            }
+            .txt{
+                @include desde(web){
+                    margin-bottom:8em;
+                    margin-top:2em; 
+                }
+                p{
+                    background: rgba(black,.2);
+                    color: white;
+                    font-size: 1.2em;
+                    @include desde(web){
+                        width: 50%;
+                        font-size: 2em;
+                        text-align: center;
+                    }
+                }
+            }
+            .txt1{
+                p{
+                    color: #53BDC8;
+                    text-transform: uppercase;
+                    text-align: center;
+                    background: rgba(0, 0, 0, 0.2); 
+                    font-size: 2em;
+                    i{
+                        color: white;
+                    }
+                }
+            }
+            .item{
+                figure{
+                    margin:auto;
+                    text-align: center;
+                }
+                p{
+                    background: rgba(black,.2);
+                    color: white;
+                    font-size: 1.2em;
+                    text-align: center;
+                    font-family: "Roboto";
+                    padding:.5em;
+                    @include desde(web){
+                        font-weight: 100;
+                        
+                        min-height: 110px;
+                        font-size: 1.4em;
+                    }
+                }
+            }
+        }
+    }
+    #separador1{
+        background: #0096A9;
+
+        p{
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin: 0;
+            font-size: .8em;
+        }
+    }
+    #separador2{
+
+        p{
+            color: #4D4D4E;
+            font-weight: 800;
+            text-align: center;
+            border-radius:.4em;
+            background: #F0F0F0;
+            padding:.5em;
+            i{
+                color: #FD5373;
+            }
+        }
+    }
+    #quinta{
+        @include desde(web){
+            background: #55B4BD;
+            padding-top:90px;
+        }
+        .cont-5{
+            justify-content: center;
+            .tit{
+                background: #F2F2F2;
+                p{
+                    text-align: center;
+                    color: #808080;
+                    font-family: helvThin;
+                    font-weight: 800;
+                    font-size: 1.2em;
+                    margin: 1em 0 0 0;
+                }
+            }
+            .testi{
+                background: #F0F0F0;
+                @include desde(web){
+                    background: transparent;
+                    border-bottom:1px solid white;
+                    padding-top:2em;
+                    padding-bottom:2em;
+                    .t2{
+                        flex-direction: row-reverse;
+                    }
+                    &:last-child{
+                        border-bottom:1px solid transparent;
+                    }
+                }
+            }
+            .cont-testi{
+                flex-direction:column;
+                @include desde(web){
+                    flex-direction:row; 
+                }
+            }
+            .foto{
+                text-align: center;
+                figure{
+                    text-align: center;
+                    max-width: 184px;
+                    margin: 1em auto;
+                    @include desde(web){
+                        margin: 0;
+                        max-width: 200px;
+                    }
+                }
+            }
+            .name{
+                p{
+                    color:#FD5373;   
+                    text-align: center;
+                    margin: 0;
+                    font-size: 1.2em;
+                    font-weight: 800;
+                    font-family: "Roboto";
+                    &:last-child{
+                        font-size: .8em;
+                        @include desde(web){
+                            font-size: 1.2em;
+                            font-weight: 100;
+                            line-height: .7em;
+                        }
+                    }
+                    @include desde(web){
+                        color: white;
+                        font-weight: 800;
+                        text-align: left;
+                        font-size: 1.6em;
+                    }
+                }
+            }
+            .desc{
+                p{
+                    font-family: "Roboto";
+                    color:#808080;
+                    font-size: 1em;
+                    padding:1em 0 1em 0;
+                    font-weight: 100;
+                    @include desde(web){
+                        color: white;
+                        font-size: 1.2em;
+
+                    }
+                }
+            }
+        }
+    }
+    #sexta{
+        @include desde(web){
+            height: 580px;
+        }
+        input {
+            font-family: century !important;
+            font-weight: 100;
+        }
+        .item-sexo span{
+            font-family: century !important;
+            font-weight: 100;
+        }
+        .input-sexo {
+            font-family: century !important;
+            font-weight: 100;
+        }
+        .cont-6{
+            .form-bot{
+                @include desde(web){
+                    background:url(../img/bott.png) #F2F2F2;
+                    background-size:contain;
+                    background-position:right;
+                    background-repeat: no-repeat; 
+                    height: 580px;
+                    position: relative;
+                    padding-top:67px;
+                    //box-shadow: inset 116px -41px 156px 92px white;
+                }
+                .icons{
+                    margin-top: 1em;
+                    p{
+                        color: white;
+                        font-size: .9em;
+                        font-family: century;
+                        padding-top:.5em;
+                    }
+                }
+                .form-segunda{
+                    @include desde(web){
+                        background: transparent;
+                        position: relative;
+
+                    }
+                    .img-pkg{
+                        height: 375px;
+                        position: relative;
+                        p{
+                            background: linear-gradient(to right, #034ea2 0%, #0095da 100%);
+                            text-align: center;
+                            color: white;
+                            position: absolute;
+                            font-size: .8em;
+
+                            &:nth-child(1){
+                                left: 48%;
+                                top: 40%;
+                            }
+                            &:nth-child(2){
+                               left: 63%;
+                               top: 15%;
+                           }                         
+                           &:nth-child(3){
+                            left: 78%;
+                            top: 52%;
+                        }
+                    }
+                    .pk1{
+                        position: absolute;
+                        bottom: -10px;
+                        left: -20px;
+                        width: 200px;
+                        figure{
+
+                            margin: 0;
+                        }
+                    }
+                    .pk2{
+                        position: absolute;
+                        bottom: -30px;
+                        right: -70px;
+                        width: 400px;
+                        figure{
+
+                            margin: 0;
+                        }
+                    }
+                }
+                .form-1{
+                    @include desde(web){
+                        background: #00ADBB;
+                        border-radius: 1em;
+                        position: absolute;
+                        top: 2em;
+                        @include desde(web){
+                            background: transparent;
+                            top:0;
+                        }
+                    }
+                    .llama-bot {
+                        background-color: transparent;
+                        position: relative;
+                        //margin-top: 2em;
+                        p {
+                            text-align: center;
+                            font-family: century;
+                            font-size: 1.5em;
+                            margin: 0;
+                            font-weight: 600;
+                            color: #276092;
+                            position: relative;
+                            @include desde(web) {
+                                font-weight: 100;
+                                font-size: 2.5em;
+                                margin: .5em .5em 0em .5em;
+                                line-height: 1em;
+                                font-family: century;
+                            }
+                            img{
+                                position: relative;
+                                left: -10px;
+                                top: 50px;
+                                width: 35px;
+                            }
+                            span:first-of-type {
+                                font-size: .6em;
+                                font-weight: 100;
+                                position: relative;
+                                bottom: 20px;
+                                left: -5px;
+                            }
+                            span {
+                                font-size: .8em;
+                                font-weight: 100;
+                            }
+                            strong {
+                                font-size: 1.8em;
+                                font-family: helveC;
+                                line-height: 1;
+                                font-weight: 100;
+                                @include desde(web) {
+                                    font-size: 1.6em;
+                                }
+                            }
+                        }
+                    }
+                    .consulta{
+                        margin: 0 auto;
+                        p{
+                            text-align: center;
+                            color:#FD5373;
+                            font-family: century;
+                            font-size: .9em;
+                            @include desde(web){
+                                font-size: 1.2em;
+                                margin: 0 10px 10px 10px;
+
+                            }
+                        }
+                    }
+                    input {
+                        font-family: helve!important;
+                        width: 100%;
+                        padding: .5em;
+                        border: 1px solid #B1B1B1;
+                        border-radius: 1em;
+                        font-size: 1em;
+                        margin-bottom: .5em;
+                        font-weight: 800;
+                        @include desde(web){
+                            width: 95%;
+                            margin: .5em;
+                            padding:.8em;
+                            border: 1px solid transparent;
+                            background: #E0E1E2;
+                        }
+                    }
+                    input[type="submit"] {
+                        font-family: helveC !important;
+                        background: #0096A9;
+                        color: white;
+                        font-size: 3em;
+                        padding: 0em;
+                        border-radius: .3em;
+                        border: 1px solid transparent;
+                        cursor: pointer;
+                        font-weight: 100;
+                        transition: .5s all;
+                        @include desde(web){
+                            width: 260px;
+                            font-size: 2.5em;
+                            background: #FD5373;
+                        }
+                    }
+                    input[type="radio"] {
+                        background-image: none !important;
+                        background-color: #fff;
+                        width: 1em;
+                        padding: 1em;
+                    }
+                    input[type=radio]:checked {
+                        background-image: none !important;
+                        background-color: #808285;
+                    }
+                    input[type="submit"]:disabled {
+                        background: rgba(#0096A9,.5);
+                        border: 1px solid transparent;
+                        position: relative;
+                        cursor: not-allowed;
+                        -webkit-appearance: none;
+                        opacity: 1;
+                        @include desde(web){
+                            background: rgba(#FD5373,.5);
+                        }
+                    }
+                    input[type="number"] {
+                        -moz-appearance: textfield;
+                    }
+                    [name="code"] {
+                        @include desde(web) {
+                            padding-right: 0;
+                            padding-left: 30px;
+                        }
+                    }
+                    [name="numero"] {
+                        @include desde(web) {
+                            padding-left: 15px;
+                            padding-right: 30px;
+                        }
+                    }
+                    [name="opcion"] {
+                        @include desde(web) {
+                            margin-bottom: 0;
+                        }
+                    }
+                    [name="cod1"],
+                    [name="num"] {
+                        @include desde(web) {
+                            top: -35px;
+                            font-size: .9em;
+                            left: 15px;
+                            width: 190px;
+                            padding: 0;
+                        }
+                    }
+                    .jamas {
+                        margin-top: 0em;
+                        @include desde(web){
+                            margin-bottom: 3em;
+                        }
+                        .ico-candado {
+                            margin: 15px 5px 10px 10px;
+                            @include desde(web){
+                                margin:5px 15px 15px 15px;
+                            }
+                        }
+                        p {
+                            font-family: century;
+                            text-align: left;
+                            font-size: .6em;
+                            color: black;
+                            @include desde(web){
+                                font-size: .7em;
+
+                            }
+                        }
+                    } 
+                }
+                .pack{
+                    @include desde(web){
+                        position: relative;
+                    }
+                    figure{
+                        @include desde(web){
+                            position: absolute;
+                            bottom:-2.5em;
+                            right: 0;
+                        }
+                        text-align: center;
+                        margin: 0;
+                        img{
+
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}
+#footer{
+    @include desde(web){
+        background: #E6E6E6;
+        height: 140px;
+    }
+    .cont-foot{
+       // position: relative;
+       .pie{
+        @include desde(web){
+               // position: absolute;
+               //bottom:20px;
+           }
+       }
+       .logo{
+        figure{
+            margin: 0;
+            img{
+
+            }
+        }
+    }
+    .foot{
+        p{
+            font-family: century;
+            line-height: 1.5em;
+            color: #000;
+            font-size: .6em;
+            text-align: center;
+            margin: 0;
+            strong{
+                font-family: century;
+                font-weight: 800;
+            }
+            @include desde(web){
+                font-size: .8em;
+                font-weight: 100;
+                margin: 1.5em 0 1.5em 0;
+            }
+            a:-webkit-any-link {
+                font-family: century;
+                color: #000;
+                text-decoration: underline;
+                cursor: auto;
+            }
+        }
+    }
+    .foot1{
+        p{
+            font-family: century;
+            line-height: 1.5em;
+            color: #276092;
+            font-size: .6em;
+            text-align: center;
+            margin:1em 0 0 0;
+            opacity: .8;
+
+            @include desde(web){
+                color: #000;
+                &:last-child{
+                    margin: 0em;
+                }
+                font-size: .8em;
+            }
+            a:-webkit-any-link {
+                color: #276092;
+                text-decoration: none;
+                cursor: auto;
+                font-weight: 800;
+                font-family: century;
+                text-transform: uppercase;
+                @include desde(web){
+                    color: #000;
+                }
+            }
+        }
+    }
+}
+}
+///DEFAULT/////////////////////////////////////////////////////////////////////////
+/*boton ir top*/
+#top {
+    position: fixed;
+    right: 1em;
+    bottom: 1em;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: #00B8D4;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.5s;
+    border-radius: 50px;
+    box-shadow: rgba(#000, .3) 2px 2px 10px 1px;
+    z-index: 89;
+    span {
+        animation: flotar 1.5s linear infinite;
+    }
+    @keyframes flotar {
+        0% {
+            margin-top: -.6em;
+        }
+        50% {
+            margin-top: .0em;
+        }
+        100% {
+            margin-top: -.6em;
+        }
+    }
+}
+/*preload*/
+
+.preload {
+    width: 100vw;
+    height: 100vh;
+    background: #E6E6E6;
+    position: fixed;
+    z-index: 9999999999999;
+    top: 0;
+}
+.preload figure {
+    height: 180px;
+    margin: auto;
+    @include desde(web) {
+        width: 500px;
+    }
+}
+.preload svg {
+    width: 180px;
+    height: 180px;
+    margin: auto;
+}
+.preload circle {
+    fill: none;
+    stroke: #0D71BA;
+    stroke-width: 15px;
+    stroke-dasharray: 314.16px;
+    stroke-dashoffset: 100px;
+    -webkit-animation: borde 5s linear infinite;
+    animation: borde 5s linear infinite;
+}
+@-webkit-keyframes borde {
+    from {
+        stroke-dashoffset: 314.16px;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes borde {
+    from {
+        stroke-dashoffset: 314.16px;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/*angular*/
+
+.input {
+    text-align: center;
+    position: relative;
+    margin: auto;
+    width: 100%;
+    @include hasta(web){
+        width: 260px;
+    }
+}
+.showMe {
+    color: #fff;
+    position: absolute;
+    top: -35px;
+    font-size: .9em;
+    left: 15px;
+    background: #9C1C38;
+    //text-shadow: 2px 3px 1px rgba(255, 255, 255, 0.8);
+    line-height: 2;
+    padding: 0 2em;
+    border-radius: 5px;
+    border: 2px solid #FFFFFF;
+    z-index: 99999999;
+    -webkit-animation: in-bottom .3s ease-in-out;
+    animation: in-bottom .3s ease-in-out;
+    .formulario-footer & {
+        width: 130%;
+        left: 0;
+    }
+}
+.showMe:after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    left: 5px;
+    bottom: -14px;
+    border: 8px #9C1C38 solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+.showMe:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 5px;
+    bottom: -16px;
+    border: 8px solid #fff;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+@-webkit-keyframes mover {
+    0% {
+        background-position: 200% 50%;
+    }
+    100% {
+        background-position: 95% 50%;
+    }
+}
+@keyframes mover {
+    0% {
+        background-position: 200% 50%;
+    }
+    100% {
+        background-position: 95% 50%;
+    }
+}
+@-webkit-keyframes mover2 {
+    0% {
+        background-position: 500% 50%;
+    }
+    100% {
+        background-position: 95% 50%;
+    }
+}
+@keyframes mover2 {
+    0% {
+        background-position: 500% 50%;
+    }
+    100% {
+        background-position: 95% 50%;
+    }
+}
+@-webkit-keyframes campo {
+    0% {
+        -webkit-transform: scale3d(0.2, 0.2, 1);
+        transform: scale3d(0.2, 0.2, 1);
+    }
+    80% {
+        -webkit-transform: scale3d(1.2, 1.2, 1);
+        transform: scale3d(1.2, 1.2, 1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+@keyframes campo {
+    0% {
+        -webkit-transform: scale3d(0.2, 0.2, 1);
+        transform: scale3d(0.2, 0.2, 1);
+    }
+    80% {
+        -webkit-transform: scale3d(1.2, 1.2, 1);
+        transform: scale3d(1.2, 1.2, 1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+input.ng-invalid.ng-dirty {
+    border: 1px solid #fa787e;
+    background-image: url(../img/error.png);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    -webkit-animation: mover .5s ease-in-out;
+    animation: mover .5s ease-in-out;
+}
+input.ng-valid.ng-dirty {
+    border: 1px solid #78fa89;
+    background-image: url(../img/correcto.png);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    -webkit-animation: mover2 .3s ease-in-out;
+    animation: mover2 .3s ease-in-out;
+}
+input[type="submit"]:disabled {
+    background: rgba(#333, .8);
+    border: 1px solid grey;
+    position: relative;
+    cursor: not-allowed;
+    -webkit-appearance: none;
+    opacity: 1;
+}
+input[type=submit] {
+    -webkit-appearance: none;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*gracias*/
+
+.btn-gracias {
+    width: 260px;
+    max-width: 320px;
+    border-radius: 15px;
+    //background: linear-gradient(to bottom, #52d81a 0%, #207324 100%);
+    background: #0096A9;
+    color: white;
+    //border: 2px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.2em;
+    margin: .5em 0 .5em 0;
+    padding:.5em;
+}
+.height100 {
+    height: 100%;
+}
+.bg-img {
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100%;
+    background: url(../img/gracias.png)#E6E6E6;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
+.bg-img h1 {
+    color: #00B6BE;
+    margin-bottom: 0;
+}
+.bg-img h3 {
+    margin-top: 0;
+}
+.bg-img{
+   h3{
+    color:#00B6BE;
+}
+}
+.bg-img .con-transparencia {
+    background: rgba(255, 255, 255, 0.8);
+}
+.bg-img figure {
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    img {
+        width: 100%
+    }
+}
+.bg-img a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    line-height: 2.5;
+}
+.bg-img a button {
+    -webkit-appearance: none;
+    width: 100%;
+    max-width: 205px;
+    border: none;
+    border-radius: 8px;
+    background: #00B6BE;
+    color: white;
+    text-transform: uppercase;
+}
+@media screen and (min-width: 768px) {
+    .bg-img figure {
+        text-align: center;
+        width: 350px;
+        margin: 0 auto;
+        img {
+            width: 100%
+        }
+    }
+    .bg-img {
+        background: url(../img/gracias.png) #E6E6E6;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+    .bg-img .con-transparencia {
+        background: rgba(255, 255, 255, 0);
+    }
+    .bg-img h1 {
+        color: black;
+        margin-bottom: 0;
+    }
+}
+
